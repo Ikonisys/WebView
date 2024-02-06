@@ -1,0 +1,98 @@
+﻿@model WebView.ViewModel.VMSlideRun
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #leftPanel {
+        width: 30%;
+        float: left;
+        border: solid 1 px black;
+        padding-left: 0px
+    }
+
+
+    #rightPanel {
+        float: right;
+        border: solid 1 px black;
+        margin-left: 3 px;
+        padding-right: 0px;
+        background-color: #E8EAF6
+    }
+</style>
+
+<div id="leftPanel">
+    <table class="table">
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Field
+            </th>
+            <th>
+                Seq#
+            </th>
+            <th>
+                Nuclei
+            </th>
+            <th>
+                Target(Low)
+            </th>
+            <th>
+                Target(High)
+            <th>
+
+        </tr>
+
+        @foreach (var item in Model.lstFieldLow)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Field)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeqNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nuclei)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TargetLow)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TargetHi)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>
+
+<div id="rightPanel">
+    <img src="~/Content/Images/Channel0_SL1.png" alt="Sample Image" width="300px" />
+</div>
+
+@*<script src="@Url.Content("~/Scripts/jquery-3.3.1.js")"></script>
+    <script src="@Url.Content("~/Scripts/DataTables/jquery.dataTables.js")"></script>
+    <link href="@Url.Content("~/Content/DataTables/css/jquery.dataTables.css")" rel="stylesheet" />*@
+@section scripts
+    {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+
+        $(document).ready(function () {
+
+            var vm = {
+
+            };
+
+        });
+
+    </script>
+    }
